@@ -1,0 +1,140 @@
+.app {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+
+  background-color: #dfdbe5;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cg fill='%239C92AC' fill-opacity='0.69'%3E%3Cpolygon fill-rule='evenodd' points='8 4 12 6 8 8 6 12 4 8 0 6 4 4 6 0 8 4'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.container {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+
+  width: 500px;
+  height: 280px;
+
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+}
+
+.container header {
+  padding: 0 16px;
+}
+
+.container header h3 {
+  text-align: center;
+}
+
+.container header div {
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.container main {
+  flex: 1;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 3fr 1fr;
+}
+
+.container main section {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+}
+
+.single-number {
+  width: 45px;
+  height: 60px;
+
+  border-radius: 4px;
+
+  background-position-y: 0;
+  background-color: #dfdbe5;
+  background-repeat: repeat-y;
+  background-image: url("./assets/number-list.png");
+
+  transition: background 2s linear;
+}
+
+.btn-groups {
+  width: 50px;
+  height: 60px;
+  cursor: pointer;
+  position: relative;
+  bottom: 25px;
+}
+
+.btn-stand {
+  position: absolute;
+  left: 0;
+  bottom: -25px;
+
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+
+  background-color: #333333;
+  box-shadow: 0 6px 0 #666;
+}
+
+.btn-rod {
+  width: 8px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(25px - 4px);
+
+  z-index: 1;
+  border-radius: 4px;
+  background-color: #e9af30;
+}
+
+.btn-ball {
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: calc(25px - 12.5px);
+  width: 25px;
+  height: 25px;
+
+  border-radius: 50%;
+  background-color: #e50;
+}
+
+.btn-groups.btn-active .btn-rod,
+.btn-groups.btn-active .btn-ball {
+  animation: dropdown 0.4s linear;
+}
+
+@keyframes dropdown {
+  0% {
+    top: 0;
+  }
+  75% {
+    top: 100%;
+  }
+  100% {
+    top: 110%;
+  }
+}
+
+.container footer {
+  display: grid;
+  height: 40px;
+  gap: 8px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+
+  border-width: 1px;
+  border-style: dashed;
+  border-color: antiquewhite;
+  background-color: white;
+}
