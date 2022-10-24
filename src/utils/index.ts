@@ -21,3 +21,25 @@ export function updateElementPositionY(
     }, 300 * index);
   });
 }
+
+export function createBackgroundImage(w: number, h: number): string {
+  const count = 10;
+  let canvas = document.createElement("canvas");
+  canvas.width = w;
+  canvas.height = h * count;
+  const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.font = "bold 36px Baloo Bhaijaan";
+  new Array(count).fill(0).forEach((_value, index) => {
+    ctx.fillText(`${index}`, w / 2, h * index + h / 2, w);
+  });
+
+  return canvas.toDataURL("image/png");
+}
+
+function convertCanvasToImage(canvas: HTMLCanvasElement): HTMLImageElement {
+  const image = new Image();
+  image.src = canvas.toDataURL("image/png");
+  return image;
+}

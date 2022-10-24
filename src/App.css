@@ -54,7 +54,6 @@
   background-position-y: 0;
   background-color: #dfdbe5;
   background-repeat: repeat-y;
-  background-image: url("./assets/number-list.png");
 
   transition: background 2s linear;
 }

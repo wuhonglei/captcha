@@ -1,7 +1,7 @@
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 
 import {
-  getBgPositionY,
+  createBackgroundImage,
   getRandomNumber,
   updateElementPositionY,
 } from "./utils";
@@ -35,6 +35,13 @@ function App() {
     }
   }, [numberListKey]);
 
+  const numberStyle = useMemo(
+    () => ({
+      backgroundImage: `url(${createBackgroundImage(45, 60)})`,
+    }),
+    []
+  );
+
   return (
     <div className="app">
       <div className="container">
@@ -44,10 +51,10 @@ function App() {
         </header>
         <main>
           <section ref={numberContainerRef} key={numberListKey}>
-            <div className="single-number"></div>
-            <div className="single-number"></div>
-            <div className="single-number"></div>
-            <div className="single-number"></div>
+            <div className="single-number" style={numberStyle}></div>
+            <div className="single-number" style={numberStyle}></div>
+            <div className="single-number" style={numberStyle}></div>
+            <div className="single-number" style={numberStyle}></div>
           </section>
           <aside
             onClick={(): void => toggleActive(true)}
